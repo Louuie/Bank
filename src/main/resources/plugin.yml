@@ -1,6 +1,0 @@
-name: Bank
-version: '${project.version}'
-main: louie.bank.Bank
-api-version: '1.20'
-libraries:
-  - org.postgresql:postgresql:42.2.27
