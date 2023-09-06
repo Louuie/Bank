@@ -1,0 +1,6 @@
+name: Bank
+version: '0.2'
+main: louie.bank.Bank
+api-version: '1.20'
+libraries:
+  - org.postgresql:postgresql:42.2.27

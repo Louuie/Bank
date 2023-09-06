@@ -24,7 +24,8 @@ public class BankService implements BankAPI {
      * @param player Players UUID
      * @return Players current Balance
      */
-    public static CompletableFuture<Integer> getPlayersBalance(UUID player) {
+    @Override
+    public CompletableFuture<Integer> getPlayersBalance(UUID player) {
         CompletableFuture<Integer> result = new CompletableFuture<>();
         checkForNullUserThenInsert(player);
         new BukkitRunnable() {
@@ -63,7 +64,8 @@ public class BankService implements BankAPI {
      * @param value Value that replaces the players current balance with
      * @return If it successfully updated the players balance
      */
-    public static CompletableFuture<Boolean> updatePlayersBalance(UUID player, int value) {
+    @Override
+    public CompletableFuture<Boolean> updatePlayersBalance(UUID player, int value) {
         CompletableFuture<Boolean> result = new CompletableFuture<>();
         new BukkitRunnable() {
             @Override
@@ -96,7 +98,8 @@ public class BankService implements BankAPI {
      * @param value Value that adds to the players current balance
      * @return If it successfully added the value to the players balance
      */
-    public static CompletableFuture<Boolean> addMoney(UUID player, int value) {
+    @Override
+    public CompletableFuture<Boolean> addMoney(UUID player, int value) {
         CompletableFuture<Boolean> result = new CompletableFuture<>();
         getPlayersBalance(player).thenAccept(balance -> {
             updatePlayersBalance(player, balance + value).thenAccept(result::complete);
@@ -114,7 +117,8 @@ public class BankService implements BankAPI {
      * @param value Value that removes from the players current balance
      * @return If it successfully removed the value from the players balance
      */
-    public static CompletableFuture<Boolean> removeMoney(UUID player, int value) {
+    @Override
+    public CompletableFuture<Boolean> removeMoney(UUID player, int value) {
         CompletableFuture<Boolean> result = new CompletableFuture<>();
         getPlayersBalance(player).thenAccept(balance -> {
             updatePlayersBalance(player, balance - value).thenAccept(result::complete);
@@ -130,7 +134,7 @@ public class BankService implements BankAPI {
      *
      * @param player The UUID of the player to check and insert if necessary.
      */
-    private static void checkForNullUserThenInsert(UUID player) {
+    private void checkForNullUserThenInsert(UUID player) {
         new BukkitRunnable() {
             @Override
             public void run() {

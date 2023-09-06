@@ -12,7 +12,7 @@ public interface BankAPI {
      * @param player Players UUID
      * @return Players current Balance
      */
-    public static CompletableFuture<Integer> getPlayersBalance(UUID player) { return new CompletableFuture<>(); }
+    CompletableFuture<Integer> getPlayersBalance(UUID player);
 
 
     /**
@@ -24,7 +24,7 @@ public interface BankAPI {
      * @param value Value that replaces the players current balance with
      * @return If it successfully updated the players balance
      */    
-    public static CompletableFuture<Boolean> updatePlayersBalance(UUID player, int value) { return new CompletableFuture<>(); }
+    CompletableFuture<Boolean> updatePlayersBalance(UUID player, int value);
 
 
     /**
@@ -37,7 +37,7 @@ public interface BankAPI {
      * @param value Value that adds to the players current balance
      * @return If it successfully added the value to the players balance
      */    
-    public static CompletableFuture<Boolean> addMoney(UUID player, int value) { return new CompletableFuture<>(); }
+    CompletableFuture<Boolean> addMoney(UUID player, int value);
 
 
     /**
@@ -50,5 +50,5 @@ public interface BankAPI {
      * @param value Value that removes from the players current balance
      * @return If it successfully removed the value from the players balance
      */
-    public static CompletableFuture<Boolean> removeMoney(UUID player, int value) { return new CompletableFuture<>(); }
+    CompletableFuture<Boolean> removeMoney(UUID player, int value);
 }
