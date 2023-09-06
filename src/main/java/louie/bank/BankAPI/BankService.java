@@ -15,6 +15,7 @@ import java.util.concurrent.CompletableFuture;
 import static louie.bank.Database.Database.initializeDatabaseConnection;
 import static louie.bank.Database.Database.insertNewPlayer;
 
+// I added this
 public class BankService implements BankAPI {
     static Bank bankClass = Bank.getInstance();
 
