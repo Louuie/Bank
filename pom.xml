@@ -52,6 +52,14 @@
         </resources>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>002</id>
+            <name>Bank</name>
+            <url>https://github.com/Louuie/Bank</url>
+        </repository>
+    </distributionManagement>
+
     <repositories>
         <repository>
             <id>spigotmc-repo</id>
